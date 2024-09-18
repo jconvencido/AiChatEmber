@@ -3,6 +3,7 @@
 module.exports = function (environment) {
   const ENV = {
     modulePrefix: 'aidev',
+    ai_key: process.env.API_KEY,
     environment,
     rootURL: '/',
     locationType: 'history',

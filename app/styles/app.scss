@@ -1,0 +1,45 @@
+.chat-box {
+  position: absolute;
+  width: 90%;
+  padding: 3rem;
+  bottom: 0;
+  padding-right: 5rem;
+
+  .conversation-box {
+
+    .response {
+      &-user, &-ai {
+        display: flex;
+      }
+
+      &-user {
+        justify-content: end;
+      }
+
+      &-ai {
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  .input-box {
+    display: flex;
+    justify-content: center;
+
+    .chat-input {
+      width: 80%;
+      height: 4rem;
+      margin-right: .1rem;
+    }
+    .send-btn {
+      width: 7rem;
+      border-radius: 10%;
+    }
+  }
+}
+
+.loading-spinner {
+  position: absolute;
+  left: 45%;
+  bottom: 2%;
+}

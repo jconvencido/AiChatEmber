@@ -1,0 +1,20 @@
+
+{{#if this.isLoading}}
+  <div class="loading-spinner">Loading...</div>
+{{/if}}
+<div class="chat-box">
+  <div class="conversation-box">
+  </div>
+
+  <form class="input-box" {{on "submit" this.submitForm}}>
+    <textarea 
+      class="chat-input" 
+      placeholder="Ask something..." 
+      value={{this.userInput}} 
+      {{on "input" this.updateInput}} 
+      required
+    ></textarea>
+    <button type="submit" class="send-btn" disabled={{this.isLoading}}>Send</button>
+  </form>
+
+</div>
