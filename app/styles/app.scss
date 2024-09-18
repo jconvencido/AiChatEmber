@@ -1,15 +1,17 @@
 .chat-box {
-  position: absolute;
-  width: 90%;
   padding: 3rem;
-  bottom: 0;
   padding-right: 5rem;
 
   .conversation-box {
+    height: 100vh;
+    box-sizing: border-box;
+    overflow-y: auto;
+    padding-bottom: 4rem;
 
     .response {
       &-user, &-ai {
         display: flex;
+        padding-bottom: 2rem;
       }
 
       &-user {
@@ -18,6 +20,7 @@
 
       &-ai {
         justify-content: flex-start;
+        width: 60%;
       }
     }
   }
@@ -25,6 +28,9 @@
   .input-box {
     display: flex;
     justify-content: center;
+    position: fixed;
+    bottom: 3rem;
+    width: 90%;
 
     .chat-input {
       width: 80%;

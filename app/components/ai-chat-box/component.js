@@ -44,6 +44,7 @@ export default class UserInputComponent extends Component {
 
     if(conversationBox) {
       conversationBox.appendChild(this.createNewp(this.userInput, 'user'));
+      conversationBox.scrollTop = conversationBox.scrollHeight;
     }
 
     this.isLoading = true; // Show loading state
@@ -59,6 +60,7 @@ export default class UserInputComponent extends Component {
       conversationBox.appendChild(this.createNewp(this.responseMessage, 'Ai'));
     }
 
+    conversationBox.scrollTop = conversationBox.scrollHeight;
     this.isLoading = false;
   }
 }
