@@ -1,9 +1,8 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import ENV from 'aidev/config/environment'
-import { GoogleGenerativeAI } from '@google/generative-ai'
-
+import ENV from 'aidev/config/environment';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 
 export default class UserInputComponent extends Component {
   @tracked userInput = '';
@@ -16,7 +15,7 @@ export default class UserInputComponent extends Component {
 
   createNewp(message, pov) {
     var newp = document.createElement('p');
-    newp.className = pov == 'user' ? 'response-user':'response-ai';
+    newp.className = pov == 'user' ? 'response-user' : 'response-ai';
     newp.innerHTML = message;
     return newp;
   }
@@ -38,11 +37,11 @@ export default class UserInputComponent extends Component {
     this.clearForm();
 
     const genAI = new GoogleGenerativeAI(ENV.ai_key);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
     const prompt = this.userInput;
     let conversationBox = this.getConversationBox();
 
-    if(conversationBox) {
+    if (conversationBox) {
       conversationBox.appendChild(this.createNewp(this.userInput, 'user'));
       conversationBox.scrollTop = conversationBox.scrollHeight;
     }
@@ -53,10 +52,10 @@ export default class UserInputComponent extends Component {
       const result = await model.generateContent(prompt);
       this.responseMessage = result.response.text();
     } catch (error) {
-      this.responseMessage = "Error occurred while fetching the response.";
+      this.responseMessage = 'Error occurred while fetching the response.';
     }
 
-    if(conversationBox) {
+    if (conversationBox) {
       conversationBox.appendChild(this.createNewp(this.responseMessage, 'Ai'));
     }
 
@@ -64,4 +63,3 @@ export default class UserInputComponent extends Component {
     this.isLoading = false;
   }
 }
-
