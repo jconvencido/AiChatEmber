@@ -9,6 +9,7 @@
   <form class="input-box" {{on "submit" this.submitForm}}>
     <textarea 
       class="chat-input" 
+      label="chatbox"
       placeholder="Ask something..." 
       value={{this.userInput}} 
       {{on "input" this.updateInput}} 
