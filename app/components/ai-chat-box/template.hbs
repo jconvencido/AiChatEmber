@@ -8,8 +8,9 @@
 
   <form class="input-box" {{on "submit" this.submitForm}}>
     <textarea 
-      class="chat-input" 
-      label="chatbox"
+      class="chat-input"
+      aria-label="chat-input"
+      id="chat-input"
       placeholder="Ask something..." 
       value={{this.userInput}} 
       {{on "input" this.updateInput}} 
